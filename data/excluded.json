@@ -1,0 +1,47 @@
+[
+  {
+    "name": "bamboo-moon/zhisaotong-Agent",
+    "url": "https://github.com/bamboo-moon/zhisaotong-Agent",
+    "reason": "Sweeping-robot customer-service/RAG app; AMap weather/location is incidental rather than the core product."
+  },
+  {
+    "name": "oldjie/Wuhan-Art-Map",
+    "url": "https://github.com/oldjie/Wuhan-Art-Map",
+    "reason": "Uses AMap MCP as Map Content Platform wording, not Model Context Protocol."
+  },
+  {
+    "name": "wsyqwsyq/CampusDateMap_-MCP-",
+    "url": "https://github.com/wsyqwsyq/CampusDateMap_-MCP-",
+    "reason": "Campus map app, but README language points to AMap platform/API rather than Model Context Protocol."
+  },
+  {
+    "name": "QuentinCody/depmap-mcp-server",
+    "url": "https://github.com/QuentinCody/depmap-mcp-server",
+    "reason": "DepMap means cancer dependency map, not geographic maps."
+  },
+  {
+    "name": "openpharma-org/geo-mcp-server",
+    "url": "https://github.com/openpharma-org/geo-mcp-server",
+    "reason": "GEO means Gene Expression Omnibus, not geospatial/location."
+  },
+  {
+    "name": "mbender-ms/geo-mcp-server",
+    "url": "https://github.com/mbender-ms/geo-mcp-server",
+    "reason": "GEO means Generative Engine Optimization, not map/geospatial."
+  },
+  {
+    "name": "YZDame/geogebra-mcp-server",
+    "url": "https://github.com/YZDame/geogebra-mcp-server",
+    "reason": "GeoGebra geometry/CAS server, not map/geospatial data."
+  },
+  {
+    "name": "202422/DoctorAssistant",
+    "url": "https://github.com/202422/DoctorAssistant",
+    "reason": "Medical multi-agent app; Google Maps MCP is only used by one pharmacy-finder sub-agent."
+  },
+  {
+    "name": "psrikanthm/expense-report",
+    "url": "https://github.com/psrikanthm/expense-report",
+    "reason": "Expense categorization app; Google Maps MCP is optional grounding for merchant names."
+  }
+]

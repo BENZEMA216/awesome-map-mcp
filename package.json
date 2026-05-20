@@ -1,0 +1,12 @@
+{
+  "name": "awesome-map-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Curated list of map, geospatial, LBS, routing, POI, and location-intelligence MCP projects.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-readme.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "license": "CC0-1.0"
+}
