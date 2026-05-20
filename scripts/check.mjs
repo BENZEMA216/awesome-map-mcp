@@ -3,7 +3,11 @@ import { spawnSync } from "node:child_process";
 
 const projectPath = new URL("../data/projects.json", import.meta.url);
 const excludedPath = new URL("../data/excluded.json", import.meta.url);
-const readmePath = new URL("../README.md", import.meta.url);
+const generatedPaths = [
+  new URL("../README.md", import.meta.url),
+  new URL("../README.zh-CN.md", import.meta.url),
+  new URL("../README.en.md", import.meta.url)
+];
 
 const projects = JSON.parse(await readFile(projectPath, "utf8"));
 const excluded = JSON.parse(await readFile(excludedPath, "utf8"));
@@ -33,7 +37,11 @@ for (const item of excluded) {
   }
 }
 
-const before = await readFile(readmePath, "utf8").catch(() => "");
+const before = new Map();
+for (const path of generatedPaths) {
+  before.set(path.href, await readFile(path, "utf8").catch(() => ""));
+}
+
 const result = spawnSync(process.execPath, ["scripts/generate-readme.mjs"], {
   cwd: new URL("..", import.meta.url),
   encoding: "utf8"
@@ -45,9 +53,12 @@ if (result.status !== 0) {
   process.exit(result.status ?? 1);
 }
 
-const after = await readFile(readmePath, "utf8");
-if (before !== after) {
-  throw new Error("README.md was not in sync; regenerated it. Run npm run check again.");
+for (const path of generatedPaths) {
+  const after = await readFile(path, "utf8");
+  if (before.get(path.href) !== after) {
+    const name = path.pathname.split("/").pop();
+    throw new Error(`${name} was not in sync; regenerated it. Run npm run check again.`);
+  }
 }
 
-console.log(`Checked ${projects.length} projects and ${excluded.length} excluded entries.`);
+console.log(`Checked ${projects.length} projects, ${excluded.length} excluded entries, and ${generatedPaths.length} generated READMEs.`);
